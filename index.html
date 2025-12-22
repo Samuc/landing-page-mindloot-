@@ -1,0 +1,1014 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="MINDLOOT LLC — web support, websites, and apps. A pragmatic studio for fast, secure, scalable delivery." />
+  <meta name="theme-color" content="#070812" />
+
+  <title>MINDLOOT LLC — Websites, Apps & Web Support</title>
+
+  <!-- Open Graph (update when you have a domain + image) -->
+  <meta property="og:title" content="MINDLOOT LLC — Websites, Apps & Web Support" />
+  <meta property="og:description" content="Mystic-tech execution: websites, apps, and support that ship fast and scale clean." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg:#0a0f1f;
+      --bg2:#0b122a;
+      --panel:rgba(255,255,255,.08);
+      --panel2:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(255,255,255,.14);
+
+      --a:#6c7bff;      /* contemporary indigo */
+      --b:#00d4ff;      /* tech cyan */
+      --c:#2ee59d;      /* accent green */
+      --warn:#ffda6b;
+
+      --radius:20px;
+      --shadow: 0 18px 60px rgba(0,0,0,.34);
+      --max: 1180px;
+
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans";
+      color:var(--text);
+      background: var(--bg);
+      overflow-x:hidden;
+      line-height:1.45;
+    }
+
+    /* Ambient background */
+    .bgfx{
+      position:fixed;
+      inset:-20vh -20vw;
+      z-index:-2;
+      pointer-events:none;
+      background:
+        radial-gradient(1100px 700px at 15% 10%, rgba(108,123,255,.22), transparent 60%),
+        radial-gradient(950px 650px at 85% 15%, rgba(0,212,255,.18), transparent 62%),
+        radial-gradient(900px 620px at 50% 110%, rgba(46,229,157,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      filter:saturate(1.08) contrast(1.02);
+      transform: translateZ(0);
+    }
+    .grain{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      opacity:.045;
+      mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      background-size:180px 180px;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+
+    /* Navbar */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(7,8,18,.62);
+      border-bottom:1px solid var(--line);
+    }
+    .nav .row{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.45px}
+    .sigil{
+      width:34px; height:34px; border-radius:12px;
+      background:
+        radial-gradient(12px 12px at 25% 30%, rgba(255,255,255,.92), transparent 60%),
+        conic-gradient(from 120deg, rgba(108,123,255,.95), rgba(0,212,255,.85), rgba(46,229,157,.60), rgba(108,123,255,.95));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 10px 30px rgba(108,123,255,.22);
+      position:relative;
+      overflow:hidden;
+    }
+    .sigil:after{
+      content:"";
+      position:absolute; inset:-30%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.35), transparent 55%);
+      transform: translateX(-12%) rotate(12deg);
+      animation: sigilGlow 6.5s var(--ease) infinite;
+      opacity:.8;
+    }
+    @keyframes sigilGlow{
+      0%,100%{transform: translateX(-12%) rotate(12deg); opacity:.65}
+      50%{transform: translateX(12%) rotate(-10deg); opacity:.95}
+    }
+
+    .navlinks{display:flex; gap:18px; flex-wrap:wrap; justify-content:flex-end}
+    .navlinks a{color:var(--muted); font-weight:650; font-size:14px; position:relative}
+    .navlinks a:hover{color:var(--text)}
+    .navlinks a:after{
+      content:"";
+      position:absolute; left:0; right:0; bottom:-8px;
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(45,226,230,.8), transparent);
+      transform: scaleX(0);
+      transform-origin:center;
+      transition: transform .22s var(--ease);
+      opacity:.7;
+    }
+    .navlinks a:hover:after{transform: scaleX(1)}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:800;
+      font-size:14px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.085); border-color: rgba(255,255,255,.22)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(108,123,255,.95), rgba(0,212,255,.82));
+      border-color: rgba(255,255,255,.12);
+      color:#050611;
+    }
+    .btn.primary:hover{background: linear-gradient(135deg, rgba(108,123,255,1), rgba(0,212,255,.94))}
+    .btn.ghost{background: transparent}
+
+    /* Hero */
+    .hero{padding:70px 0 20px}
+    .heroGrid{display:grid; grid-template-columns: 1.1fr .9fr; gap:18px; align-items:stretch}
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(900px 340px at 20% -10%, rgba(108,123,255,.16), transparent 58%),
+        radial-gradient(780px 320px at 110% 0%, rgba(0,212,255,.10), transparent 62%);
+      opacity:1;
+      pointer-events:none;
+    }
+
+    /* Media frames / images */
+    .imgFrame{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      border-radius:18px;
+      overflow:hidden;
+      position:relative;
+    }
+    .imgFrame:after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(600px 220px at 30% 20%, rgba(108,123,255,.12), transparent 55%),
+                  radial-gradient(520px 220px at 80% 10%, rgba(0,212,255,.10), transparent 60%);
+      pointer-events:none;
+      mix-blend-mode:screen;
+      opacity:.95;
+    }
+    .imgFrame img{
+      display:block;
+      width:100%; height:100%;
+      object-fit:cover;
+      filter: saturate(1.04) contrast(1.03);
+      transform: scale(1.02);
+    }
+    .heroMedia{height:190px; margin-bottom:14px}
+    .heroMedia img{height:190px}
+    .thumb{height:170px; margin:14px}
+    .thumb img{height:170px}
+
+    .logoRow{display:flex; gap:16px; flex-wrap:wrap; margin-top:18px; align-items:center}
+    .logoChip{
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(7,8,18,.18);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .heroCard{padding:28px}
+
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:13px; color:var(--muted);
+      padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      position:relative;
+      z-index:1;
+    }
+    .dot{width:8px; height:8px; border-radius:99px; background: var(--c); box-shadow: 0 0 0 4px rgba(39,227,140,.12)}
+
+    h1{
+      margin:16px 0 10px;
+      font-size: clamp(32px, 3.6vw, 52px);
+      line-height:1.02;
+      letter-spacing:-.8px;
+      position:relative;
+      z-index:1;
+    }
+    .sub{color:var(--muted); font-size:16px; max-width:68ch; margin:0 0 16px; position:relative; z-index:1}
+
+    .actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; position:relative; z-index:1}
+
+    .pills{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; color:var(--muted); font-size:13px; position:relative; z-index:1}
+    .pill{border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.05); border-radius:999px; padding:7px 10px}
+
+    .orbCard{padding:22px}
+    .orbTitle{font-weight:900; margin:0 0 8px; letter-spacing:.2px; position:relative; z-index:1}
+    .orbText{margin:0 0 12px; color:var(--muted); position:relative; z-index:1}
+
+    .orbs{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      position:relative;
+      z-index:1;
+    }
+    .stat{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius:16px;
+      padding:12px;
+      position:relative;
+      overflow:hidden;
+    }
+    .stat:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: conic-gradient(from 180deg, rgba(124,92,255,.18), rgba(45,226,230,.12), rgba(39,227,140,.10), rgba(124,92,255,.18));
+      filter: blur(18px);
+      opacity:.55;
+      animation: drift 10s var(--ease) infinite;
+    }
+    @keyframes drift{
+      0%,100%{transform: translate(-4%, -2%) rotate(0deg)}
+      50%{transform: translate(5%, 4%) rotate(22deg)}
+    }
+    .stat b{display:block; font-size:16px; position:relative; z-index:1}
+    .stat span{display:block; color:var(--muted); font-size:12px; margin-top:2px; position:relative; z-index:1}
+
+    
+    /* Sections */
+    section{padding:44px 0}
+    .sectionTitle{font-size:24px; margin:0 0 12px; letter-spacing:-.2px}
+    .sectionSub{margin:0 0 18px; color:var(--muted)}
+
+    .cards3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    .svc{
+      padding:18px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      position:relative;
+      overflow:hidden;
+      transform: translateY(8px);
+      opacity:0;
+      transition: transform .55s var(--ease), opacity .55s var(--ease);
+    }
+    .svc.is-in{transform: translateY(0); opacity:1}
+
+    .svc h3{margin:0 0 8px; font-size:16px}
+    .svc p{margin:0; color:var(--muted); font-size:14px}
+
+    .icon{
+      width:40px; height:40px; border-radius:16px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(124,92,255,.26), rgba(45,226,230,.14));
+      border:1px solid rgba(255,255,255,.14);
+      margin-bottom:12px;
+    }
+
+    /* Capability band */
+    .band{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius);
+      padding:18px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+      overflow:hidden;
+      position:relative;
+    }
+    .band:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(900px 280px at 10% 50%, rgba(45,226,230,.14), transparent 55%),
+        radial-gradient(700px 240px at 90% 10%, rgba(124,92,255,.18), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .band > *{position:relative; z-index:1}
+
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+    .chip{padding:8px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.14); background: rgba(7,8,18,.28); color:var(--muted); font-size:13px}
+
+    /* Case studies */
+    .cases{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    .case{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius);
+      overflow:hidden;
+      position:relative;
+      transform: translateY(8px);
+      opacity:0;
+      transition: transform .55s var(--ease), opacity .55s var(--ease);
+    }
+    .case.is-in{transform: translateY(0); opacity:1}
+    .caseTop{padding:14px 14px 0}
+    .caseTop b{display:block; margin-bottom:6px}
+    .caseTop span{color:var(--muted); font-size:13px}
+    .thumb{
+      height:170px;
+      margin:14px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(120px 120px at 20% 30%, rgba(124,92,255,.5), transparent 60%),
+        radial-gradient(140px 140px at 70% 30%, rgba(45,226,230,.35), transparent 60%),
+        radial-gradient(180px 180px at 40% 80%, rgba(39,227,140,.18), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      position:relative;
+      overflow:hidden;
+    }
+    .thumb svg{position:absolute; inset:0; width:100%; height:100%; opacity:.9}
+
+    .caseBottom{padding:0 14px 16px; display:flex; gap:10px; flex-wrap:wrap}
+    .tag{font-size:12px; color:var(--muted); border:1px solid rgba(255,255,255,.12); background: rgba(7,8,18,.25); padding:6px 9px; border-radius:999px}
+
+    /* Pricing */
+    .pricing{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    .price{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+      transform: translateY(8px);
+      opacity:0;
+      transition: transform .55s var(--ease), opacity .55s var(--ease);
+    }
+    .price.is-in{transform: translateY(0); opacity:1}
+    .price.featured{background: rgba(255,255,255,.07); border-color: rgba(45,226,230,.26)}
+    .price .name{display:flex; align-items:center; justify-content:space-between; gap:10px}
+    .badge{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.14); background: rgba(45,226,230,.10); color:rgba(255,255,255,.86)}
+    .price h3{margin:0; font-size:16px}
+    .price p{margin:8px 0 12px; color:var(--muted); font-size:13px}
+    .price ul{margin:0; padding:0 0 0 18px; color:var(--muted); font-size:13px; display:grid; gap:8px}
+
+    /* Testimonials */
+    .testimonials{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    blockquote{
+      margin:0;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius);
+      padding:16px;
+      color:var(--muted);
+      font-size:14px;
+      transform: translateY(8px);
+      opacity:0;
+      transition: transform .55s var(--ease), opacity .55s var(--ease);
+      position:relative;
+      overflow:hidden;
+    }
+    blockquote.is-in{transform: translateY(0); opacity:1}
+    blockquote b{display:block; color:var(--text); margin-top:10px; font-size:13px}
+
+    /* FAQ */
+    details{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius: 16px;
+      padding:12px 14px;
+    }
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:800}
+    details p{color:var(--muted); margin:10px 0 0; font-size:14px}
+
+    /* Contact */
+    .two{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
+    .about, .contact{padding:22px}
+
+    .list{margin-top:12px; display:grid; gap:10px}
+    .li{padding:12px; border-radius:16px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.05); color:var(--muted); font-size:14px}
+
+    form{display:grid; gap:10px; margin-top:12px}
+    label{font-size:13px; color:var(--muted)}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(7,8,18,.42);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus, textarea:focus{border-color: rgba(45,226,230,.62)}
+    textarea{min-height:120px; resize:vertical}
+    .fine{color:var(--muted); font-size:12px}
+    .ok{display:none; margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(39,227,140,.28); background: rgba(39,227,140,.08); color:rgba(255,255,255,.88); font-size:13px}
+    .warn{display:none; margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(255,218,107,.28); background: rgba(255,218,107,.08); color:rgba(255,255,255,.88); font-size:13px}
+
+    /* Footer */
+    .footer{padding:22px 0 42px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+    .footrow{display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap}
+    .smalllinks{display:flex; gap:14px; flex-wrap:wrap}
+    .smalllinks a:hover{color:var(--text)}
+
+    /* Reveal utility */
+    .reveal{transform: translateY(10px); opacity:0; transition: transform .7s var(--ease), opacity .7s var(--ease)}
+    .reveal.is-in{transform: translateY(0); opacity:1}
+
+    /* Responsive */
+    @media (max-width: 1000px){
+      .heroGrid{grid-template-columns: 1fr}
+      .cards3{grid-template-columns: 1fr}
+      .cases{grid-template-columns: 1fr}
+      .pricing{grid-template-columns: 1fr}
+      .testimonials{grid-template-columns: 1fr}
+      .two{grid-template-columns: 1fr}
+      .band{grid-template-columns: 1fr}
+      .navlinks{display:none}
+    }
+    @media (max-width: 520px){
+      .hero{padding-top:48px}
+      .orbs{grid-template-columns: 1fr}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none !important; transition:none !important; scroll-behavior:auto !important}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bgfx" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="wrap">
+      <div class="row">
+        <a class="brand" href="#top" aria-label="MINDLOOT LLC">
+          <span class="sigil" aria-hidden="true"></span>
+          <span>MINDLOOT LLC</span>
+        </a>
+
+        <nav class="navlinks" aria-label="Navigation">
+          <a href="#services">Services</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#work">Work</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="btn primary" href="#contact">Start a project</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="heroGrid">
+          <!-- Left: copy -->
+          <div class="card heroCard reveal">
+            <div class="kicker"><span class="dot"></span> Websites • Web Apps • Support</div>
+            <h1>Modern, conversion-ready web builds — with engineering-grade reliability.</h1>
+            <p class="sub">
+              <b>MINDLOOT LLC</b> delivers high-performance websites and custom web apps, then keeps them healthy with ongoing support.
+              The vibe is premium — the implementation is practical.
+            </p>
+
+            <div class="actions">
+              <a class="btn primary" href="#contact">Request a quote</a>
+              <a class="btn ghost" href="#work">See work</a>
+              <a class="btn" href="#pricing">Pricing</a>
+            </div>
+
+            <div class="pills" aria-label="Highlights">
+              <span class="pill">⚡ Fast load + smooth UX</span>
+              <span class="pill">🔒 Secure defaults</span>
+              <span class="pill">📈 Analytics-ready</span>
+              <span class="pill">🧩 Easy to extend</span>
+            </div>
+
+            <div class="logoRow" aria-label="What we build">
+              <span class="logoChip">Marketing sites</span>
+              <span class="logoChip">Landing funnels</span>
+              <span class="logoChip">Client portals</span>
+              <span class="logoChip">Internal tools</span>
+              <span class="logoChip">Maintenance</span>
+            </div>
+          </div>
+
+          <!-- Right: hero split image -->
+          <aside class="card orbCard reveal" style="animation-delay:.06s">
+            <div class="imgFrame" style="height:420px" aria-hidden="true">
+              <img alt="" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1800&q=75" />
+            </div>
+
+            <div style="margin-top:14px">
+              <h2 class="orbTitle" style="margin-bottom:6px">Delivery that feels effortless</h2>
+              <p class="orbText" style="margin-bottom:0">
+                Clean scope, clear milestones, and a stable handoff. Designed for Vercel + GitHub workflows.
+              </p>
+
+              <div class="orbs" style="margin-top:12px">
+                <div class="stat">
+                  <b>Core Web Vitals</b>
+                  <span>Speed + responsiveness + stability</span>
+                </div>
+                <div class="stat">
+                  <b>Operational support</b>
+                  <span>Fixes, updates, monitoring guidance</span>
+                </div>
+                <div class="stat">
+                  <b>SEO foundation</b>
+                  <span>Metadata, structure, indexing hygiene</span>
+                </div>
+                <div class="stat">
+                  <b>Analytics</b>
+                  <span>Events, conversions, simple dashboards</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="wrap">
+        <h2 class="sectionTitle">Services</h2>
+        <p class="sectionSub">A small set of offers, designed to cover most teams end-to-end.</p>
+
+        <div class="cards3">
+          <div class="svc">
+            <div class="icon" aria-hidden="true">🌐</div>
+            <h3>Websites & landing pages</h3>
+            <p>Fast, responsive, SEO-ready pages built to convert — and easy to maintain.</p>
+          </div>
+          <div class="svc">
+            <div class="icon" aria-hidden="true">🧩</div>
+            <h3>Custom web apps</h3>
+            <p>Dashboards, internal tools, client portals, automations, and integrations.</p>
+          </div>
+          <div class="svc">
+            <div class="icon" aria-hidden="true">🛠️</div>
+            <h3>Support & maintenance</h3>
+            <p>Bug fixes, performance tuning, security updates, monitoring, and backups.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section id="capabilities">
+      <div class="wrap">
+        <h2 class="sectionTitle">Capabilities</h2>
+        <p class="sectionSub">Think of this as your “digital operations” layer — designed with craft and rigor.</p>
+
+        <div class="band reveal">
+          <div>
+            <b style="display:block; font-size:16px; margin-bottom:6px">Engineering, design, and delivery — aligned.</b>
+            <div style="color:var(--muted); font-size:14px">
+              We focus on clarity: measurable outcomes, stable systems, and a build process that doesn’t melt down after launch.
+            </div>
+
+            <div class="chips" aria-label="Capabilities list">
+              <span class="chip">Performance & Core Web Vitals</span>
+              <span class="chip">Security hardening</span>
+              <span class="chip">Analytics instrumentation</span>
+              <span class="chip">CMS or no-CMS (your choice)</span>
+              <span class="chip">API integrations</span>
+              <span class="chip">Automations & workflows</span>
+              <span class="chip">Monitoring & alerts</span>
+              <span class="chip">CI/CD friendly</span>
+            </div>
+          </div>
+
+          <div>
+            <div style="border:1px solid rgba(255,255,255,.12); background: rgba(7,8,18,.28); border-radius:18px; padding:14px">
+              <b style="display:block; margin-bottom:6px">Ideal for</b>
+              <div style="color:var(--muted); font-size:13px; display:grid; gap:8px">
+                <div>• New launches that need to look premium</div>
+                <div>• Legacy websites that need speed + stability</div>
+                <div>• Teams that want reliable, ongoing support</div>
+                <div>• Internal tools that remove repetitive work</div>
+              </div>
+            </div>
+
+            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn primary" href="#contact">Tell us what you need</a>
+              <a class="btn" href="#faq">Questions?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK / CASES -->
+    <section id="work">
+      <div class="wrap">
+        <h2 class="sectionTitle">Selected engagements</h2>
+        <p class="sectionSub">Three real-world patterns we build and maintain — optimized for speed, clarity, and long-term stability.</p>
+
+        <div class="cases">
+          <article class="case">
+            <div class="caseTop">
+              <b>Conversion landing + analytics</b>
+              <span>High-converting landing with event tracking and A/B-ready structure</span>
+            </div>
+            <div class="imgFrame thumb" aria-hidden="true">
+              <img alt="" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=75" />
+            </div>
+            <div class="caseBottom">
+              <span class="tag">Landing</span><span class="tag">Tracking</span><span class="tag">Performance</span>
+            </div>
+          </article>
+
+          <article class="case">
+            <div class="caseTop">
+              <b>Client portal web app</b>
+              <span>Secure auth, permissions, dashboard views, and lightweight admin tooling</span>
+            </div>
+            <div class="imgFrame thumb" aria-hidden="true">
+              <img alt="" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=75" />
+            </div>
+            <div class="caseBottom">
+              <span class="tag">Web app</span><span class="tag">Auth</span><span class="tag">Admin</span>
+            </div>
+          </article>
+
+          <article class="case">
+            <div class="caseTop">
+              <b>Maintenance + performance</b>
+              <span>Ongoing fixes, security updates, and speed improvements with clean release notes</span>
+            </div>
+            <div class="imgFrame thumb" aria-hidden="true">
+              <img alt="" src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1400&q=75" />
+            </div>
+            <div class="caseBottom">
+              <span class="tag">Support</span><span class="tag">Security</span><span class="tag">Reliability</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <div class="wrap">
+        <h2 class="sectionTitle">Pricing (starting points)</h2>
+        <p class="sectionSub">Click any plan to jump to the contact form — pricing is finalized after scope.</p>
+
+        <div class="pricing">
+          <div class="price">
+            <div class="name">
+              <h3>Signal</h3>
+              <span class="badge">Best for landing pages</span>
+            </div>
+            <p>One clear page, one clear message. Designed to convert.</p>
+            <ul>
+              <li>Single-page landing</li>
+              <li>Responsive + fast load</li>
+              <li>SEO + analytics setup</li>
+              <li>Basic copy polishing</li>
+            </ul>
+            <div style="margin-top:14px">
+              <a class="btn primary" href="#contact">Talk to us</a>
+              <a class="btn" href="#contact" data-prefill="Signal">Choose plan</a>
+            </div>
+          </div>
+
+          <div class="price featured">
+            <div class="name">
+              <h3>Portal</h3>
+              <span class="badge">Most popular</span>
+            </div>
+            <p>A multi-page site or small web app with real workflows.</p>
+            <ul>
+              <li>3–6 pages or app screens</li>
+              <li>Contact + integrations</li>
+              <li>Deployment to Vercel</li>
+              <li>Post-launch support window</li>
+            </ul>
+            <div style="margin-top:14px">
+              <a class="btn primary" href="#contact" data-prefill="Portal">Choose plan</a>
+              <a class="btn" href="#contact">Ask for a quote</a>
+            </div>
+          </div>
+
+          <div class="price">
+            <div class="name">
+              <h3>Guardian</h3>
+              <span class="badge">For ongoing support</span>
+            </div>
+            <p>Maintenance, fixes, and improvements — month to month.</p>
+            <ul>
+              <li>Priority bug fixes</li>
+              <li>Updates + security patches</li>
+              <li>Performance improvements</li>
+              <li>Monitoring recommendations</li>
+            </ul>
+            <div style="margin-top:14px">
+              <a class="btn primary" href="#contact" data-prefill="Guardian">Choose plan</a>
+              <a class="btn" href="#contact">Discuss needs</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px" class="fine">
+          Note: These are starting points. Final pricing depends on scope, integrations, timelines, and content.
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section>
+      <div class="wrap">
+        <h2 class="sectionTitle">Outcomes you can expect</h2>
+        <p class="sectionSub">The goal is simple: better performance, fewer surprises, and a site/app that stays maintainable.</p>
+
+        <div class="cards3">
+          <div class="svc is-in" style="opacity:1; transform:none">
+            <div class="icon" aria-hidden="true">⚡</div>
+            <h3>Speed that users feel</h3>
+            <p>Lean pages, optimized assets, and a structure that supports great Core Web Vitals on modern hosting.</p>
+          </div>
+          <div class="svc is-in" style="opacity:1; transform:none">
+            <div class="icon" aria-hidden="true">🧷</div>
+            <h3>Stable releases</h3>
+            <p>Small, safe changes — shipped with clear notes and predictable deployments (Vercel + GitHub friendly).</p>
+          </div>
+          <div class="svc is-in" style="opacity:1; transform:none">
+            <div class="icon" aria-hidden="true">📊</div>
+            <h3>Measurable conversions</h3>
+            <p>Tracking and events set up so you can see what works: clicks, leads, funnels, and drop-offs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap">
+        <h2 class="sectionTitle">FAQ</h2>
+        <p class="sectionSub">Clear answers to common questions. If something is missing, just reach out.</p>
+
+        <details class="reveal">
+          <summary>What does a typical project timeline look like?</summary>
+          <p>Most landing pages take 1–2 weeks. Multi-page websites or small web apps usually take 3–6 weeks, depending on scope, feedback speed, and integrations.</p>
+        </details>
+
+        <details class="reveal">
+          <summary>How do you scope and price projects?</summary>
+          <p>We start with a short discovery to define goals, requirements, and constraints. Pricing is then based on scope and complexity, with clear milestones and no hidden costs.</p>
+        </details>
+
+        <details class="reveal">
+          <summary>What happens after launch?</summary>
+          <p>After delivery, we can provide a support period or ongoing maintenance. This typically includes bug fixes, small improvements, security updates, and performance checks.</p>
+        </details>
+
+        <details class="reveal">
+          <summary>Can you work with existing websites or codebases?</summary>
+          <p>Yes. We frequently improve or extend existing sites and apps, focusing on stability, performance, and gradual refactoring rather than risky rewrites.</p>
+        </details>
+
+        <details class="reveal">
+          <summary>How do we communicate during a project?</summary>
+          <p>Communication is kept simple and efficient. You’ll get regular updates, clear next steps, and direct access for questions or feedback throughout the project.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="two">
+          <div class="card about reveal">
+            <div style="padding:22px">
+              <h2 class="sectionTitle" style="margin-top:0">Contact</h2>
+              <p class="sectionSub">
+                Tell us what you’re building. We’ll reply with a clear next step: questions, scope, and a quote.
+              </p>
+
+              <div class="list">
+                <div class="li">🧭 Clear scope + timeline</div>
+                <div class="li">🧪 Practical recommendations (not buzzwords)</div>
+                <div class="li">🧿 Secure defaults + clean maintenance</div>
+              </div>
+
+              <div style="margin-top:12px" class="fine">
+                Prefer email? Use the button in the form to open your mail client.
+              </div>
+            </div>
+          </div>
+
+          <div class="card contact reveal" style="animation-delay:.06s">
+            <div style="padding:22px">
+              <h2 class="sectionTitle" style="margin-top:0">Send a message</h2>
+              <p class="sectionSub">Use the secure form below. It works perfectly on Vercel and requires no backend.</p>
+
+              <!-- Jotform embed -->
+              <iframe
+                id="JotFormIFrame-253554633140351"
+                title="Contact Form"
+                onload="window.parent.scrollTo(0,0)"
+                allowtransparency="true"
+                allow="geolocation; microphone; camera; fullscreen; payment"
+                src="https://form.jotform.com/253554633140351"
+                frameborder="0"
+                style="min-width:100%;max-width:100%;height:539px;border:none;border-radius:14px;background:rgba(7,8,18,.35);"
+                scrolling="no">
+              </iframe>
+              <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+              <script>
+                window.jotformEmbedHandler(
+                  "iframe[id='JotFormIFrame-253554633140351']",
+                  "https://form.jotform.com/"
+                );
+              </script>
+
+              <div class="fine" style="margin-top:10px">
+                The form is handled securely by Jotform. You will receive submissions instantly.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footrow">
+          <div>
+            <b style="color:var(--text)">MINDLOOT LLC</b><br/>
+            Websites • Apps • Web Support
+          </div>
+
+          <div class="smalllinks" aria-label="Footer links">
+            <a href="#services">Services</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#work">Work</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+            <a href="#top">Top</a>
+          </div>
+
+          <div>
+            © <span id="year"></span> MINDLOOT LLC
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        if(!href || href === '#') return;
+        const el = document.querySelector(href);
+        if(!el) return;
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      for(const en of entries){
+        if(en.isIntersecting){
+          en.target.classList.add('is-in');
+          io.unobserve(en.target);
+        }
+      }
+    }, {threshold: 0.12});
+
+    document.querySelectorAll('.reveal, .svc, .case, .price, blockquote').forEach(el => io.observe(el));
+
+    // Pricing -> prefill plan
+    document.querySelectorAll('[data-prefill]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const plan = btn.getAttribute('data-prefill');
+        const planInput = document.getElementById('plan');
+        if(planInput) planInput.value = plan;
+      });
+    });
+
+    // Contact form: Formspree (recommended) or mailto fallback
+    const FORM_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxxx"  (set this)
+    const TO_EMAIL = "contact@mindloot.com"; // fallback email address
+
+    const form = document.getElementById('contactForm');
+    const okBox = document.getElementById('okBox');
+    const warnBox = document.getElementById('warnBox');
+    const mailtoLink = document.getElementById('mailtoLink');
+
+    function buildMailto(){
+      const name = document.getElementById('name').value.trim() || "Client";
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const plan = document.getElementById('plan').value.trim();
+
+      const subject = encodeURIComponent(`[MINDLOOT] Inquiry${plan ? ` — ${plan}` : ''} — ${name}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nPlan: ${plan || '-'}\n\nMessage:\n${message}\n`
+      );
+      return `mailto:${TO_EMAIL}?subject=${subject}&body=${body}`;
+    }
+
+    function syncMailto(){
+      mailtoLink.setAttribute('href', buildMailto());
+    }
+
+    ['name','email','message'].forEach(id => document.getElementById(id).addEventListener('input', syncMailto));
+    syncMailto();
+
+    // If endpoint is set, POST via fetch (no page reload)
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      okBox.style.display = 'none';
+      warnBox.style.display = 'none';
+
+      const formData = new FormData(form);
+
+      if(!FORM_ENDPOINT){
+        warnBox.style.display = 'block';
+        // still offer mailto
+        window.location.href = buildMailto();
+        return;
+      }
+
+      try{
+        const res = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+
+        if(res.ok){
+          okBox.style.display = 'block';
+          form.reset();
+          document.getElementById('plan').value = '';
+          syncMailto();
+        } else {
+          warnBox.textContent = 'Something went wrong sending the form. Use “Open email” instead.';
+          warnBox.style.display = 'block';
+        }
+      }catch(err){
+        warnBox.textContent = 'Network error. Use “Open email” instead.';
+        warnBox.style.display = 'block';
+      }
+    });
+
+    // Subtle parallax background (very light)
+    let raf = null;
+    window.addEventListener('mousemove', (e) => {
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      if(raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        document.querySelector('.bgfx').style.transform = `translate(${x * 6}px, ${y * 6}px)`;
+      });
+    });
+  </script>
+</body>
+</html>
