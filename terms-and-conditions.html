@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Terms and Conditions — MINDLOOT LLC" />
+  <meta name="theme-color" content="#070812" />
+
+  <title>Terms & Conditions — MINDLOOT LLC</title>
+
+  <!-- SAME STYLE AS index.html / privacy-cookie-policy.html -->
+  <style>
+    :root{
+      --bg:#0a0f1f;
+      --bg2:#0b122a;
+      --panel:rgba(255,255,255,.08);
+      --panel2:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(255,255,255,.14);
+
+      --a:#6c7bff;
+      --b:#00d4ff;
+      --c:#2ee59d;
+      --warn:#ffda6b;
+
+      --radius:20px;
+      --shadow: 0 18px 60px rgba(0,0,0,.34);
+      --max: 1180px;
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background: var(--bg);
+      line-height:1.5;
+    }
+
+    .bgfx{
+      position:fixed;
+      inset:-20vh -20vw;
+      z-index:-2;
+      background:
+        radial-gradient(1100px 700px at 15% 10%, rgba(108,123,255,.22), transparent 60%),
+        radial-gradient(950px 650px at 85% 15%, rgba(0,212,255,.18), transparent 62%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+    }
+    .grain{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      opacity:.045;
+      mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    }
+
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(7,8,18,.62);
+      border-bottom:1px solid var(--line);
+    }
+    .nav .row{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900}
+    .sigil{
+      width:34px;height:34px;border-radius:12px;
+      background:conic-gradient(from 120deg, var(--a), var(--b), var(--c), var(--a));
+    }
+
+    .btn{
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      font-weight:800;
+      font-size:14px;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--a), var(--b));
+      color:#050611;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:28px;
+    }
+
+    h1{font-size:clamp(32px,4vw,52px);margin:0 0 10px}
+    h2{font-size:22px;margin:28px 0 10px}
+    h3{font-size:16px;margin:18px 0 8px;color:var(--text)}
+    p{color:var(--muted);margin:0 0 14px}
+    ol{margin:10px 0 14px 18px;color:var(--muted)}
+    li{margin-bottom:10px}
+    .meta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:14px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .pill{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+      font-weight:700;
+    }
+    .divider{
+      height:1px;
+      background: var(--line);
+      margin:18px 0;
+    }
+
+    .footer{
+      margin-top:60px;
+      padding:22px 0 42px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .footrow{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .smalllinks{display:flex;gap:14px;flex-wrap:wrap}
+    .smalllinks a:hover{color:var(--text)}
+    .notice{
+      border:1px solid rgba(255,218,107,.25);
+      background: rgba(255,218,107,.07);
+      padding:14px 16px;
+      border-radius:16px;
+      color:var(--muted);
+      margin-top:14px;
+    }
+    .notice b{color:var(--text)}
+  </style>
+</head>
+
+<body>
+  <div class="bgfx"></div>
+  <div class="grain"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap">
+      <div class="row">
+        <a class="brand" href="/">
+          <span class="sigil"></span>
+          <span>MINDLOOT LLC</span>
+        </a>
+        <a class="btn primary" href="https://www.mindloot.tech/">Back to site</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="wrap" style="padding:60px 0">
+    <div class="card">
+      <h1>Terms & Conditions</h1>
+
+      <p>
+        These are the General Terms and Conditions of <strong>MINDLOOT LLC</strong>,
+        a company with registered office at 1209 MOUNTAIN ROAD PL NE ALBUQUERQUE, NM 87110,
+        business number <strong>EIN 98-1900456</strong>.
+      </p>
+
+      <div class="meta">
+        <span class="pill">Contact: <a href="mailto:contact@mindloot.tech">contact@mindloot.tech</a></span>
+        <span class="pill">Last updated: <span id="lastUpdated">2025-12-23</span></span>
+      </div>
+
+      <h2>Article 1 — General</h2>
+      <ol>
+        <li>
+          These general terms and conditions apply to all offers, quotes and agreements between the customer
+          (the “Client”) and Mindloot, insofar as Mindloot has declared these conditions applicable, unless parties
+          have deviated from them explicitly and in writing.
+        </li>
+        <li>
+          These terms supersede all previous versions and apply to all quotes, offers and contracts between Mindloot
+          and the Client.
+        </li>
+        <li>
+          These terms and conditions are also set forth for the employees of the Client and the corresponding managers.
+        </li>
+        <li>
+          If a situation occurs that is not governed by these terms, it must be assessed according to the spirit of these
+          terms and conditions.
+        </li>
+      </ol>
+
+      <h2>Article 2 — Quotes and offers</h2>
+      <ol>
+        <li>
+          All quotes and offers by Mindloot are without obligation until accepted by the Client. Acceptance is realised when
+          the Client signs a written agreement (e.g. a “service agreement”, “statement of work”, or “cooperation agreement”).
+          The signed agreement supersedes all previous agreements, both verbal and written.
+        </li>
+        <li>
+          Mindloot may not be held to its quotes or offers if the Client could reasonably have been expected to realise that the
+          quotes or offers (or elements thereof) contained an error or oversight.
+        </li>
+        <li>
+          Prices set forth in the agreement are exclusive of taxes (including VAT where applicable) and other statutory levies
+          and costs that may be incurred in the context of the agreement (including travel, accommodation, postage and administration),
+          unless stated otherwise.
+        </li>
+        <li>
+          A pricing overview does not oblige Mindloot to carry out a part of the task for a corresponding percentage of the price given.
+          Offers or quotes do not automatically apply to future orders.
+        </li>
+      </ol>
+
+      <h2>Article 3 — Contract duration, lead times, execution and modification</h2>
+      <ol>
+        <li>
+          The agreement is entered into for the duration specified in the applicable agreement, unless the nature of the agreement
+          leads to this changing or parties agree otherwise explicitly and in writing.
+        </li>
+        <li>
+          Delivery dates and timelines are indicative and not binding. Delivery delays shall not entitle the Client to compensation of
+          damages, a reduction in price, nor annulment of the agreement.
+        </li>
+        <li>
+          If Mindloot requires data (information, documents, originals, images, log-ins, etc.) from the Client, the execution period
+          shall not commence until the Client has provided such data correctly and entirely, within 5 working days unless agreed otherwise.
+        </li>
+        <li>
+          Mindloot may outsource certain tasks to third parties.
+        </li>
+        <li>
+          Mindloot may execute the agreement in various phases and invoice the corresponding phases individually.
+        </li>
+      </ol>
+
+      <h2>Article 4 — Suspension, dissolution and interim termination</h2>
+      <ol>
+        <li>
+          Mindloot is entitled to suspend its obligations or dissolve the contract if the Client is guilty of a major contractual failing
+          and does not rectify it within 8 days after receipt of a notice of default (by email or registered post).
+        </li>
+        <li>
+          Non-payment of one or more invoices by the due date shall always be regarded as a major contractual failing.
+        </li>
+        <li>
+          Upon termination of the agreement, the Client shall pay for all services provided by Mindloot, as well as costs incurred by Mindloot
+          as a result of the termination.
+        </li>
+        <li>
+          Nevertheless, each party shall provide the other party with a reasonable period to resolve shortcomings and to initially seek an
+          amicable arrangement.
+        </li>
+        <li>
+          The agreement can be terminated at all times by email or in writing, one month prior to the end of the ongoing contract.
+          Without this termination, the contract shall be tacitly extended by one month, unless agreed otherwise.
+        </li>
+        <li>
+          Projects put “on hold” by either party shall not lead to suspension of payments.
+        </li>
+        <li>
+          If either party cancels an order entirely or partially, the ordered or prepared items, plus any transport and delivery costs incurred
+          and the labour time reserved for execution, shall be fully invoiced to the cancelling party, unless otherwise agreed.
+        </li>
+      </ol>
+
+      <h2>Article 5 — Force majeure</h2>
+      <ol>
+        <li>
+          Mindloot cannot be held liable for shortcomings in the execution of the agreement that are attributable to force majeure.
+        </li>
+        <li>
+          Force majeure includes all external forces, foreseen or unforeseen, upon which Mindloot can exercise no influence and as a result of which
+          Mindloot is not able to fulfil its obligations.
+        </li>
+        <li>
+          This includes erroneous or non-compliance with the agreement by third parties or by the Client themselves.
+        </li>
+        <li>
+          Mindloot may suspend its obligations for the duration of the force majeure. If this period extends longer than two months, each party may
+          dissolve the agreement without any obligation to provide damages to the other party.
+        </li>
+      </ol>
+
+      <h2>Article 6 — Payment and debt-collection costs</h2>
+      <ol>
+        <li>
+          Unless agreed otherwise, payment must be made within 30 days of the invoice date, using the payment method set forth by Mindloot.
+          Mindloot is entitled to invoice periodically.
+        </li>
+        <li>
+          All invoices must be paid by the due date by bank transfer to Mindloot (or as otherwise indicated in the invoice).
+        </li>
+        <li>
+          Every payment will be offset against the oldest outstanding invoice, and first against any interest and costs owed.
+          Permitted discounts shall be cancelled if these terms and conditions are not respected.
+        </li>
+        <li>
+          Third-party costs (e.g., paid registrations, domain registration, hosting, software licenses, media/ads budgets, conversion fees, etc.)
+          shall be invoiced to the Client unless it has been agreed that these costs shall be charged directly to the third-party supplier.
+        </li>
+        <li>
+          Mindloot must be notified of any disputes within seven working days of sending an invoice (by email or registered post).
+          A dispute cannot lead to a delay or the suspension of payments.
+        </li>
+        <li>
+          If the Client remains in default, the Client shall be considered legally defaulting and shall owe interest and collection costs
+          as permitted by applicable law.
+        </li>
+      </ol>
+
+      <h2>Article 7 — Retention of title</h2>
+      <ol>
+        <li>
+          All items supplied by Mindloot in the context of the agreement remain the property of Mindloot until the Client has correctly fulfilled
+          all obligations from the agreement(s) made with Mindloot.
+        </li>
+        <li>
+          Items supplied by Mindloot which fall under retention of title may not be sold on or used as a method of payment.
+        </li>
+      </ol>
+
+      <h2>Article 8 — Liability</h2>
+      <ol>
+        <li>
+          In the event that Mindloot is liable, this liability is limited to what has been specified in this section.
+        </li>
+        <li>
+          Mindloot is not liable for any damage created as a result of Mindloot making assumptions on the basis of incorrect and/or incomplete data
+          supplied by or on behalf of the Client.
+        </li>
+        <li>
+          Mindloot cannot be held liable for damage to third parties caused by the Client, arising from the usage (lawful or otherwise) of products or services.
+        </li>
+        <li>
+          Mindloot cannot be held liable for damage caused by the Client or by third parties (e.g., hosting providers, platforms, search engines, affiliates, etc.).
+        </li>
+        <li>
+          Mindloot is not liable for indirect or incidental damage or loss of income that the Client may suffer as a result of the supply of services during the agreement period.
+        </li>
+        <li>
+          If Mindloot is found liable for any damage, Mindloot’s liability shall be limited to a maximum of the total value of the agreement at hand, unless otherwise required by law.
+        </li>
+        <li>
+          Mindloot is exclusively liable for direct damage or gross negligence in the execution of the agreement.
+        </li>
+        <li>
+          Mindloot offers no guarantee of success, profit, or results. Results may be influenced by external factors over which Mindloot has no control
+          (including Client actions and third parties). The Client acknowledges that competition, market conditions, and platform changes can affect outcomes.
+        </li>
+        <li>
+          To achieve targets set in the agreement, Mindloot may depend on services and software of other parties. Budgets provided in advance (including media/ads budgets)
+          are indicative and third-party invoices shall serve as actual amounts and quantities.
+        </li>
+      </ol>
+
+      <h2>Article 9 — Intellectual property</h2>
+      <ol>
+        <li>
+          “Intellectual property” means all intellectual, industrial and other property rights (registered or unregistered), including but not limited to
+          copyright, related rights, trademarks, trade names, logos, designs, models, patents, patent applications, domain names, know-how, database rights and software.
+        </li>
+        <li>
+          The Client guarantees the accuracy and completeness of all material and information (in any form) made available for execution of the agreement, and guarantees
+          that its use does not breach legislation or third-party rights. The Client indemnifies Mindloot against any third-party claims related to such materials.
+        </li>
+        <li>
+          In the event of revisions by the Client (or third parties) to a website, tool or system where Mindloot supplies services, the Client shall notify Mindloot immediately.
+        </li>
+        <li>
+          The Client acknowledges that Mindloot’s practices and services could be influenced or hindered due to modifications about which Mindloot was not notified.
+        </li>
+        <li>
+          Mindloot cannot be held liable for consequences of complete or partial shortcomings by the Client in fulfilling obligations set forth under the agreement.
+        </li>
+      </ol>
+
+      <h2>Article 10 — Applicable law and competent court</h2>
+      <ol>
+        <li>
+          All legal relationships to which Mindloot is party shall be subject exclusively to the laws of  State of New Mexico and the United States of America,
+          even if an obligation is fulfilled entirely or partially abroad or if the party involved is resident of another country.
+        </li>
+        <li>
+          Parties shall only approach the court once they have exhausted all reasonable possibilities for resolving the dispute between themselves.
+        </li>
+      </ol>
+
+      <div class="divider"></div>
+
+      <p style="margin-top:18px">
+        Questions about these Terms? Contact us at
+        <a href="mailto:contact@mindloot.tech">contact@mindloot.tech</a>.
+      </p>
+
+      <p style="margin-top:18px">
+        <a class="btn" href="https://www.mindloot.tech/">← Go back</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footrow">
+        <div>
+          <b style="color:var(--text)">MINDLOOT LLC</b><br/>
+          Websites • Apps • Web Support<br/>
+          <span>Contact: <a href="mailto:contact@mindloot.tech">contact@mindloot.tech</a></span>
+        </div>
+
+        <div class="smalllinks">
+          <a href="/">Home</a>
+          <a href="privacy-cookie-policy.html">Privacy & Cookies</a>
+          <a href="terms-and-conditions.html">Terms & Conditions</a>
+        </div>
+
+        <div>© <span id="year"></span> MINDLOOT LLC</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
