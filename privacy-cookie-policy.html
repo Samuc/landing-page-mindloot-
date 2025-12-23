@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Privacy Policy and Cookies Policy — MINDLOOT LLC" />
+  <meta name="theme-color" content="#070812" />
+
+  <title>Privacy & Cookies Policy — MINDLOOT LLC</title>
+
+  <!-- Reuse SAME styles as index.html -->
+  <style>
+    /* === SAME CSS AS INDEX.HTML (UNCHANGED) === */
+    :root{
+      --bg:#0a0f1f;
+      --bg2:#0b122a;
+      --panel:rgba(255,255,255,.08);
+      --panel2:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(255,255,255,.14);
+
+      --a:#6c7bff;
+      --b:#00d4ff;
+      --c:#2ee59d;
+      --warn:#ffda6b;
+
+      --radius:20px;
+      --shadow: 0 18px 60px rgba(0,0,0,.34);
+      --max: 1180px;
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background: var(--bg);
+      line-height:1.5;
+    }
+
+    .bgfx{
+      position:fixed;
+      inset:-20vh -20vw;
+      z-index:-2;
+      background:
+        radial-gradient(1100px 700px at 15% 10%, rgba(108,123,255,.22), transparent 60%),
+        radial-gradient(950px 650px at 85% 15%, rgba(0,212,255,.18), transparent 62%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+    }
+    .grain{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      opacity:.045;
+      mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    }
+
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(7,8,18,.62);
+      border-bottom:1px solid var(--line);
+    }
+    .nav .row{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900}
+    .sigil{
+      width:34px;height:34px;border-radius:12px;
+      background:conic-gradient(from 120deg, var(--a), var(--b), var(--c), var(--a));
+    }
+
+    .btn{
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      font-weight:800;
+      font-size:14px;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--a), var(--b));
+      color:#050611;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:28px;
+    }
+
+    h1{font-size:clamp(32px,4vw,52px);margin:0 0 10px}
+    h2{font-size:22px;margin:28px 0 10px}
+    p{color:var(--muted);margin:0 0 14px}
+    ul{margin:10px 0 14px 18px;color:var(--muted)}
+    li{margin-bottom:6px}
+
+    .footer{
+      margin-top:60px;
+      padding:22px 0 42px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .footrow{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .smalllinks{display:flex;gap:14px;flex-wrap:wrap}
+    .smalllinks a:hover{color:var(--text)}
+  </style>
+</head>
+
+<body>
+  <div class="bgfx"></div>
+  <div class="grain"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap">
+      <div class="row">
+        <a class="brand" href="/">
+          <span class="sigil"></span>
+          <span>MINDLOOT LLC</span>
+        </a>
+        <a class="btn primary" href="https://mindloot.tech/">Back to site</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="wrap" style="padding:60px 0">
+    <div class="card">
+      <h1>Privacy Policy & Cookies Policy</h1>
+
+      <p>
+        This Privacy Policy explains how <strong>MINDLOOT LLC</strong> collects,
+        uses and protects any information that you provide when using this website.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        This website may use cookies — small text files stored on your device —
+        to improve user experience and analyze website usage.
+      </p>
+      <ul>
+        <li>Understand how visitors interact with the site</li>
+        <li>Improve performance and usability</li>
+        <li>Support embedded services (e.g. forms or analytics)</li>
+      </ul>
+      <p>
+        You can choose to disable cookies through your browser settings.
+        Disabling cookies may affect some website functionality.
+      </p>
+      <p>
+        More information about cookies can be found at
+        <a href="https://www.aboutcookies.org" target="_blank" rel="noopener">www.aboutcookies.org</a>.
+      </p>
+
+      <h2>Privacy Policy</h2>
+      <p>
+        Most of this website can be used without providing personal data.
+        In some cases (for example, when contacting us), personal information
+        may be requested.
+      </p>
+      <p>
+        Any personal data provided will be used solely for legitimate business
+        purposes such as responding to inquiries or providing information
+        about our services.
+      </p>
+      <p>
+        We do not sell, rent or share your personal data with third parties,
+        unless required by law.
+      </p>
+      <p>
+        You may request access, correction or deletion of your personal data
+        at any time by contacting us at
+        <a href="mailto:contact@mindloot.tech">contact@mindloot.tech</a>.
+      </p>
+
+      <h2>Analytics</h2>
+      <p>
+        This website may use analytics tools (such as Google Analytics)
+        to collect anonymized usage data, including pages visited and
+        general device information.
+      </p>
+      <p>
+        This data is used exclusively to improve website quality and performance.
+        You can opt out by disabling cookies in your browser.
+      </p>
+
+      <h2>Policy Updates</h2>
+      <p>
+        This policy may be updated from time to time.
+        Any changes will be published on this page.
+      </p>
+
+      <p style="margin-top:28px">
+        <a class="btn" href="https://mindloot.tech/">← Go back</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footrow">
+        <div>
+          <b style="color:var(--text)">MINDLOOT LLC</b><br/>
+          Websites • Apps • Web Support<br/>
+          <span>Contact: <a href="mailto:contact@mindloot.tech">contact@mindloot.tech</a></span>
+        </div>
+
+        <div class="smalllinks">
+          <a href="/">Home</a>
+          <a href="privacy-cookie-policy.html">Privacy & Cookies</a>
+          <a href="terms-and-conditions.html">Terms & Conditions</a>
+        </div>
+
+        <div>© <span id="year"></span> MINDLOOT LLC</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
