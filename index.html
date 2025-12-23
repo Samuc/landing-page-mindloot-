@@ -207,6 +207,77 @@
       color:var(--muted);
       font-size:12px;
     }
+
+    /* Contact left (Globaxis-style) */
+    .contactLeft{
+      padding:0;
+      overflow:hidden;
+    }
+    .contactLeftInner{
+      position:relative;
+      padding:26px;
+      min-height: 520px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .contactLeftMedia{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(10,15,31,.55), rgba(10,15,31,.92)),
+        url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=75');
+      background-size:cover;
+      background-position:center;
+      filter:saturate(1.05) contrast(1.05);
+    }
+    .contactLeftMedia:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 360px at 20% 10%, rgba(108,123,255,.22), transparent 60%),
+        radial-gradient(900px 360px at 80% 20%, rgba(0,212,255,.18), transparent 62%);
+      mix-blend-mode:screen;
+      opacity:.9;
+      pointer-events:none;
+    }
+    .contactLeftInner > *{position:relative; z-index:1}
+    .contactKicker{font-weight:800; color:rgba(255,255,255,.85); letter-spacing:.2px; font-size:14px}
+    .contactHeadline{
+      margin:10px 0 0;
+      font-size: clamp(34px, 3.6vw, 56px);
+      line-height:1.02;
+      letter-spacing:-.8px;
+    }
+    .contactBlocks{display:grid; gap:14px; margin-top:12px}
+    .infoBlock{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      border-radius:18px;
+      padding:14px;
+    }
+    .infoIcon{
+      width:38px;
+      height:38px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background: linear-gradient(135deg, rgba(255,180,70,.22), rgba(255,180,70,.10));
+      border:1px solid rgba(255,180,70,.22);
+      flex:0 0 auto;
+    }
+    .infoTitle{margin:0; font-weight:900; font-size:14px}
+    .infoText{margin:6px 0 0; color:rgba(255,255,255,.78); font-size:13px; line-height:1.35}
+    .infoText a{color:rgba(255,255,255,.92); text-decoration:none}
+    .infoText a:hover{text-decoration:underline}
+    .legalLinks{display:grid; gap:6px; margin-top:6px}
+    .legalLinks a{color:rgba(255,255,255,.86); text-decoration:none}
+    .legalLinks a:hover{text-decoration:underline}
     .heroCard{padding:28px}
 
     .kicker{
@@ -817,31 +888,49 @@
     <section id="contact">
       <div class="wrap">
         <div class="two">
-          <div class="card about reveal">
-            <div style="padding:22px">
-              <h2 class="sectionTitle" style="margin-top:0">Contact</h2>
-              <p class="sectionSub">
-                Tell us what you’re building. We’ll reply with a clear next step: questions, scope, and a quote.
-              </p>
+          <!-- Left: contact info & legal (Globaxis-style) -->
+          <div class="card contactLeft reveal">
+            <div class="contactLeftMedia" aria-hidden="true"></div>
+            <div class="contactLeftInner">
+              <div>
+                <div class="contactKicker">Contact us</div>
+                <div class="contactHeadline">Let’s start building<br/>the right solution for<br/>your business</div>
 
-              <div class="list">
-                <div class="li">🧭 Clear scope + timeline</div>
-                <div class="li">🧪 Practical recommendations (not buzzwords)</div>
-                <div class="li">🧿 Secure defaults + clean maintenance</div>
+                <div class="contactBlocks">
+                  <div class="infoBlock">
+                    <div class="infoIcon" aria-hidden="true">✉️</div>
+                    <div>
+                      <p class="infoTitle">Email</p>
+                      <p class="infoText"><a href="mailto:contact@mindloot.es">contact@mindloot.es</a></p>
+                    </div>
+                  </div>
+
+                  <div class="infoBlock">
+                    <div class="infoIcon" aria-hidden="true">⚖️</div>
+                    <div>
+                      <p class="infoTitle">Legal information</p>
+                      <div class="legalLinks">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="cookie-policy.html">Cookie Policy</a>
+                        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div style="margin-top:12px" class="fine">
-                Prefer email? Use the button in the form to open your mail client.
+              <div class="fine" style="color:rgba(255,255,255,.68)">
+                Typical reply time: 1–2 business days.
               </div>
             </div>
           </div>
 
+          <!-- Right: Jotform embed -->
           <div class="card contact reveal" style="animation-delay:.06s">
             <div style="padding:22px">
               <h2 class="sectionTitle" style="margin-top:0">Send a message</h2>
-              <p class="sectionSub">Use the secure form below. It works perfectly on Vercel and requires no backend.</p>
+              <p class="sectionSub">Fill the form and we’ll get back to you quickly.</p>
 
-              <!-- Jotform embed -->
               <iframe
                 id="JotFormIFrame-253554633140351"
                 title="Contact Form"
@@ -862,7 +951,7 @@
               </script>
 
               <div class="fine" style="margin-top:10px">
-                The form is handled securely by Jotform. You will receive submissions instantly.
+                Prefer email? Write to <a href="mailto:contact@mindloot.es" style="text-decoration:underline">contact@mindloot.es</a>.
               </div>
             </div>
           </div>
@@ -875,7 +964,8 @@
         <div class="footrow">
           <div>
             <b style="color:var(--text)">MINDLOOT LLC</b><br/>
-            Websites • Apps • Web Support
+            Websites • Apps • Web Support<br/>
+            <span class="fine">Contact: <a href="mailto:contact@mindloot.es" style="text-decoration:underline">contact@mindloot.es</a></span>
           </div>
 
           <div class="smalllinks" aria-label="Footer links">
@@ -884,6 +974,9 @@
             <a href="#work">Work</a>
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+            <a href="cookie-policy.html">Cookie Policy</a>
             <a href="#top">Top</a>
           </div>
 
@@ -893,6 +986,20 @@
         </div>
       </div>
     </footer>
+
+    <!-- Cookie banner (offline-friendly) -->
+    <div id="cookieBanner" style="position:fixed;bottom:20px;left:20px;right:20px;max-width:980px;margin:auto;z-index:9999;display:none">
+      <div class="card" style="padding:16px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+        <div style="max-width:680px;color:var(--muted);font-size:13px">
+          This site may use cookies only when analytics or embedded services require them. Learn more in our
+          <a href="cookie-policy.html" style="text-decoration:underline">Cookie Policy</a> and
+          <a href="privacy-policy.html" style="text-decoration:underline">Privacy Policy</a>.
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="btn" id="cookieClose">Close</button>
+        </div>
+      </div>
+    </div>
   </main>
 
   <script>
@@ -909,7 +1016,8 @@
     });
 
     // Current year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const y = document.getElementById('year');
+    if(y) y.textContent = new Date().getFullYear();
 
     // Reveal on scroll
     const io = new IntersectionObserver((entries) => {
@@ -923,92 +1031,68 @@
 
     document.querySelectorAll('.reveal, .svc, .case, .price, blockquote').forEach(el => io.observe(el));
 
-    // Pricing -> prefill plan
-    document.querySelectorAll('[data-prefill]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const plan = btn.getAttribute('data-prefill');
-        const planInput = document.getElementById('plan');
-        if(planInput) planInput.value = plan;
-      });
-    });
+    // Cookie banner (offline-friendly: no localStorage required)
+    const banner = document.getElementById('cookieBanner');
+    const closeBtn = document.getElementById('cookieClose');
+    if(banner && closeBtn){
+      banner.style.display = 'block';
+      closeBtn.onclick = () => { banner.style.display = 'none'; };
+    }
 
-    // Contact form: Formspree (recommended) or mailto fallback
-    const FORM_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxxx"  (set this)
-    const TO_EMAIL = "contact@mindloot.com"; // fallback email address
-
-    const form = document.getElementById('contactForm');
-    const okBox = document.getElementById('okBox');
-    const warnBox = document.getElementById('warnBox');
-    const mailtoLink = document.getElementById('mailtoLink');
+    // Contact helpers (mailto + copy)
+    const TO_EMAIL = 'contact@mindloot.es';
+    const mailtoBtn = document.getElementById('mailtoBtn');
+    const copyBtn = document.getElementById('copyBtn');
 
     function buildMailto(){
-      const name = document.getElementById('name').value.trim() || "Client";
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const plan = document.getElementById('plan').value.trim();
+      const name = (document.getElementById('name')?.value || '').trim();
+      const email = (document.getElementById('email')?.value || '').trim();
+      const message = (document.getElementById('message')?.value || '').trim();
 
-      const subject = encodeURIComponent(`[MINDLOOT] Inquiry${plan ? ` — ${plan}` : ''} — ${name}`);
+      const subject = encodeURIComponent(`[MINDLOOT] Website / App inquiry${name ? ' — ' + name : ''}`);
       const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nPlan: ${plan || '-'}\n\nMessage:\n${message}\n`
+        `Name: ${name || '-'}
+Email: ${email || '-'}
+
+Message:
+${message || '-'}
+`
       );
       return `mailto:${TO_EMAIL}?subject=${subject}&body=${body}`;
     }
 
     function syncMailto(){
-      mailtoLink.setAttribute('href', buildMailto());
+      if(mailtoBtn) mailtoBtn.setAttribute('href', buildMailto());
     }
 
-    ['name','email','message'].forEach(id => document.getElementById(id).addEventListener('input', syncMailto));
+    ['name','email','message'].forEach(id => {
+      const el = document.getElementById(id);
+      if(el) el.addEventListener('input', syncMailto);
+    });
     syncMailto();
 
-    // If endpoint is set, POST via fetch (no page reload)
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      okBox.style.display = 'none';
-      warnBox.style.display = 'none';
+    if(copyBtn){
+      copyBtn.addEventListener('click', async () => {
+        const name = (document.getElementById('name')?.value || '').trim();
+        const email = (document.getElementById('email')?.value || '').trim();
+        const message = (document.getElementById('message')?.value || '').trim();
+        const text = `MINDLOOT LLC inquiry
 
-      const formData = new FormData(form);
+Name: ${name || '-'}
+Email: ${email || '-'}
 
-      if(!FORM_ENDPOINT){
-        warnBox.style.display = 'block';
-        // still offer mailto
-        window.location.href = buildMailto();
-        return;
-      }
-
-      try{
-        const res = await fetch(FORM_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: formData
-        });
-
-        if(res.ok){
-          okBox.style.display = 'block';
-          form.reset();
-          document.getElementById('plan').value = '';
-          syncMailto();
-        } else {
-          warnBox.textContent = 'Something went wrong sending the form. Use “Open email” instead.';
-          warnBox.style.display = 'block';
+Message:
+${message || '-'}
+`;
+        try{
+          await navigator.clipboard.writeText(text);
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => copyBtn.textContent = 'Copy message', 1200);
+        }catch(e){
+          window.prompt('Copy this message:', text);
         }
-      }catch(err){
-        warnBox.textContent = 'Network error. Use “Open email” instead.';
-        warnBox.style.display = 'block';
-      }
-    });
-
-    // Subtle parallax background (very light)
-    let raf = null;
-    window.addEventListener('mousemove', (e) => {
-      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const x = (e.clientX / window.innerWidth - 0.5) * 2;
-      const y = (e.clientY / window.innerHeight - 0.5) * 2;
-      if(raf) cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        document.querySelector('.bgfx').style.transform = `translate(${x * 6}px, ${y * 6}px)`;
       });
-    });
+    }
   </script>
 </body>
 </html>
